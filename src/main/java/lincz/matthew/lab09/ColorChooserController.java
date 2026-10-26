@@ -1,4 +1,5 @@
 package lincz.matthew.lab09;
+//https://github.com/Nullvigil/lab09.git
 
 import java.io.IOException;
 import javafx.fxml.FXML;
@@ -42,6 +43,7 @@ public class ColorChooserController {
     private TextField redTextField;
     
     public void initialize() { 
+        color();
         redTextField.textProperty().bind(redSlider.valueProperty().asString("%.0f"));
         greenTextField.textProperty().bind(greenSlider.valueProperty().asString("%.0f"));
         blueTextField.textProperty().bind(blueSlider.valueProperty().asString("%.0f"));
