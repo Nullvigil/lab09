@@ -46,5 +46,21 @@ public class ColorChooserController {
         greenTextField.textProperty().bind(greenSlider.valueProperty().asString("%.0f"));
         blueTextField.textProperty().bind(blueSlider.valueProperty().asString("%.0f"));
         alphaTextField.textProperty().bind(alphaSlider.valueProperty().asString("%.2f"));
+        
+        redSlider.valueProperty().addListener((ov, oldValue, newValue) -> color());
+        greenSlider.valueProperty().addListener((ov, oldValue, newValue) -> color());
+        blueSlider.valueProperty().addListener((ov, oldValue, newValue) -> color());
+        alphaSlider.valueProperty().addListener((ov, oldValue, newValue) -> color());
+    }
+    /**
+     * Called when any slider has changes that occur
+     */
+    public void color() {
+        red = (int) redSlider.getValue();
+        green = (int) greenSlider.getValue();
+        blue = (int) blueSlider.getValue();
+        alpha = (double) alphaSlider.getValue();
+        colorRectangle.setFill(Color.rgb(red, green, blue));
+        colorRectangle.setOpacity(alpha);
     }
 }
